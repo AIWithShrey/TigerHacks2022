@@ -1,0 +1,52 @@
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transportation Mode Predictor</title>
+</head>
+<body>
+<h1>Public transportation usage predictor</h1>
+<form action="/", method="post">
+    
+    <label for="age">Age:</label>
+    <br>
+    <input type="number" name="age" value="" required>
+    <br>
+    <label for="gender">Gender:</label>
+    <br>
+    <input type="character" name="gender" value="" required>
+    <br>
+    <label for="family">Number of family members:</label>
+    <br>
+    <input type="number" name="family" value="" required>
+    <br>
+    <label for="car">Do you own a car?</label>
+    <br>
+    <input type="boolean" name="car" value="" required>
+    <br>
+    <label for="bike">Do you own a bike?</label>
+    <br>
+    <input type="boolean" name="bike" value="" required>
+    <br>
+    <label for="revenue">Enter monthly revenue:</label>
+    <br>
+    <input type="number" name="revenue" value="" required>
+    <br>
+    <input type="submit" value="Predict!">
+    <br>
+    
+    {% if result == 1 %}
+        <h2>You will use public transportation</h2>
+    {% elif result == 0 %}
+        <h2>You will not use public transportation</h2>
+    {% else %}
+        <h2>{{result_dummy}}</h2>
+    {% endif %}
+</form>
+
+</body>
+</html>
+{% endblock %}
